@@ -1,0 +1,1 @@
+INSERT INTO userTable (email, password) VALUES ("raul@gmail.com", "raulzin");

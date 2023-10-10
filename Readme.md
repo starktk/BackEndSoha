@@ -8,6 +8,10 @@
 - Abra o projeto com o IntelliJ, e verifique se a "application.yml" ( src> main > resources > application.yml ) está configurado conforme Application.yml.
 - Configure na pasta application.yml a password e o username como foi configurado na instalação do Postgresql
 - O Projeto roda na porta default 8080, caso preferir alterar será necessário adcionar o corpo (Server: port:) no recurso application.yml ( src> main > resources > application.yml )
+
+## Obs
+- Já possui um usuário pré cadastrado ("raul@gmail.com", "raulzin"), porém se preferir há um endpoint para registrar pelo postman/insomnia
+
 ## Tecnologias
 - Spring Lombok
 - Spring Web
