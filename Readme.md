@@ -2,8 +2,11 @@
 *Sistema de validação e geração de token para login.*
 
 ## Como rodar localmente
+- Necessário instalar o Postgresql https://www.postgresql.org/download/
+- Clone este repositório
 - Escolha uma ide de sua preferencia(Irei utilizar o Intellj como referência)
 - Abra o projeto com o IntelliJ, e verifique se a "application.yml" ( src> main > resources > application.yml ) está configurado conforme Application.yml.
+- Configure na pasta application.yml a password e o username como foi configurado na instalação do Postgresql
 - O Projeto roda na porta default 8080, caso preferir alterar será necessário adcionar o corpo (Server: port:) no recurso application.yml ( src> main > resources > application.yml )
 ## Tecnologias
 - Spring Lombok
