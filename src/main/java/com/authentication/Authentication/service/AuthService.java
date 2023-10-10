@@ -12,6 +12,10 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+/**@Author Raul Rodrigues
+ * Classe de serviço com regras de autenticação e filtros para gerar e extrair token jwt
+ * @Version V2.0
+ * @Returns Dto Body with Jwt Token**/
 @Service
 @RequiredArgsConstructor
 public class AuthService {
@@ -20,7 +24,12 @@ public class AuthService {
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
+
+    /**Método para autenticar login
+     * @Params Email and Password
+     * @Return Dto com Jwt Token **/
     public AuthenticationResponseDto login(AuthLogDto authLogDto) {
+        if (verifyEmail(authLogDto.getEmail())) return null;
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         authLogDto.getEmail(),
@@ -34,6 +43,17 @@ public class AuthService {
                 .build();
     }
 
+    /** Metodo para verificar formato especifico do email
+     * @Return boolean**/
+    public Boolean verifyEmail(String email) {
+        if (!email.contains("@") && !email.contains(".com")) {
+            return false;
+        }
+        return true;
+    }
+    /** Metodo para registrar usuario no banco com senha encriptada
+     * @Params Email and PasswordEncrypted
+     * @Return Dto Jwt Token**/
     public AuthenticationResponseDto register(AuthRequestDto authRequestDto) {
      var user = Usuario.builder()
              .email(authRequestDto.getEmail())
